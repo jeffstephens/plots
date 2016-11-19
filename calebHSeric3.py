@@ -50,6 +50,13 @@ def triangle(radius, centerx, centery, transparency, theta, color='#800080', lw=
 	y0 = centery
 	circle(r, 3, x0, y0, transparency, theta, color, lw)
 
+def newShape(radius, centerx, centery, transparency, theta, color='#800080', lw=2):
+	r = radius
+	t = transparency
+	x0 = centerx
+	y0 = centery
+	circle(r, 8, x0, y0, transparency, theta, color, lw)
+
 def circlesq(r, radius2, points, points2, centerx, centery, transparency, theta = 0, color = 'c', lw = 2):
 	t = transparency
 	steptheta = 360.0/points
@@ -57,10 +64,14 @@ def circlesq(r, radius2, points, points2, centerx, centery, transparency, theta 
 	x0 = centerx
 	y0 = centery
 	pointsrange = points + 1
+
+	#lw = random.randint(20, 40) / 10
+
 	for i in range(pointsrange):
 		y = math.sin(math.radians(theta))
 		x = math.cos(math.radians(theta))
-		circle(radius2, points2, r*x+x0, r*y+y0, 1.0, theta-180, color, lw)
+#		circle(radius2, points2, r*x+x0, r*y+y0, 1.0, theta-180, color, lw)
+		newShape(radius2, r*x+x0, r*y+y0, 1.0, theta-180, color, lw)
 		theta = theta + steptheta
 
 
@@ -69,8 +80,8 @@ def circlesq(r, radius2, points, points2, centerx, centery, transparency, theta 
 def drawing(r_):
 	r=0.5
 	delta=0.025
-	for i in range(9):
-		circle(r - 9 * delta / 2.0 + i * delta, 200, 0.0, 0.0, 1, lw=0.5)
+	#for i in range(9):
+	#	circle(r - 9 * delta / 2.0 + i * delta, 200, 0.0, 0.0, 1, lw=0.5)
 
 
 	r=r_
@@ -259,4 +270,4 @@ fig.savefig("Pattern7.pdf")
 
 
 import os
-os.system("open Pattern7.pdf")
+#os.system("open Pattern7.pdf")
