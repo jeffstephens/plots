@@ -55,7 +55,7 @@ def newShape(radius, centerx, centery, transparency, theta, color='#800080', lw=
 	t = transparency
 	x0 = centerx
 	y0 = centery
-	circle(r, 8, x0, y0, transparency, theta, color, lw)
+	circle(r, 2, x0, y0, transparency, theta, color, lw)
 
 def circlesq(r, radius2, points, points2, centerx, centery, transparency, theta = 0, color = 'c', lw = 2):
 	t = transparency
@@ -86,12 +86,13 @@ def drawing(r_):
 
 	r=r_
 	delta=0.025
-	for i in range(9):
-		circle(r - 9 * delta / 2.0 + i * delta, 200, 0.0, 0.0, 1, lw=0.5)
+	numCircles=10
+	for i in range(numCircles):
+		circle(r - 9 * delta / 2.0 + i * delta, 200, 0.0, 0.0, 1.0/((i+1)*0.8), color='#666666', lw=0.5)
 
 
-	circlesq(0.4, 0.4, 6, 60, 0, 0, 0.8, 270, '#800080', 2)
-	circlesq(1, 0.2, 24, 60, 0, 0, 0.8, 270, '#00529F', 2)
+	circlesq(0.6, 0.5, 8, 60, 0, 0, 0.8, 270, '#800080', 2)
+	circlesq(1.5, 0.2, 24, 60, 0, 0, 0.8, 270, '#00529F', 2)
 
 drawing(1.5)
 
